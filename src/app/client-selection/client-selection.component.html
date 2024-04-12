@@ -1,0 +1,24 @@
+<div class="client-selection-wrapper">
+  <div>
+    <div class="dropdown">
+      <select
+        class="select-option"
+        #mySelect
+        (change)="onOptionsSelected(mySelect.value)"
+      >
+        <option
+          class="option"
+          *ngFor="let option of dropDownData"
+          [value]="option.value"
+        >
+          {{ option.label }}
+        </option>
+      </select>
+    </div>
+  </div>
+
+  <div>
+    <app-client-header [client]="clientSelected"></app-client-header>
+  </div>
+  <div class="body-data">this is body data</div>
+</div>

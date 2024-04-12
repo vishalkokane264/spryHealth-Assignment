@@ -1,0 +1,166 @@
+<div class="form-container">
+  <form [formGroup]="employeeForm" (ngSubmit)="submitForm()">
+    <table>
+      <tr>
+        <td>
+          <h2>Employee Information Form</h2>
+        </td>
+      </tr>
+      <tr>
+        <td><label for="firstName">First Name:</label></td>
+        <td>
+          <input type="text" id="firstName" formControlName="firstName" />
+        </td>
+        <td>
+          <div *ngIf="employeeForm && employeeForm.get('firstName').invalid">
+            <small *ngIf="employeeForm.get('firstName').errors?.required"
+              >First name is required.</small
+            >
+            <small *ngIf="employeeForm.get('firstName').errors?.minlength"
+              >First name must be at least 2 characters long.</small
+            >
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label for="lastName">Last Name:</label>
+        </td>
+        <td><input type="text" id="lastName" formControlName="lastName" /></td>
+        <td>
+          <div
+            *ngIf="
+              employeeForm.get('lastName').invalid &&
+              employeeForm.get('lastName').touched
+            "
+          >
+            <small *ngIf="employeeForm.get('lastName').errors?.required"
+              >Last name is required.</small
+            >
+            <small *ngIf="employeeForm.get('lastName').errors?.minlength"
+              >Last name must be at least 2 characters long.</small
+            >
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td><label for="email">Email:</label></td>
+        <td><input type="email" id="email" formControlName="email" /></td>
+        <td>
+          <div
+            *ngIf="
+              employeeForm.get('email').invalid &&
+              employeeForm.get('email').touched
+            "
+          >
+            <small *ngIf="employeeForm.get('email').errors?.required"
+              >Email is required.</small
+            >
+            <small *ngIf="employeeForm.get('email').errors?.email"
+              >Please enter a valid email address.</small
+            >
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td><label for="phone">Phone Number:</label></td>
+        <td><input type="number" id="phone" formControlName="phone" /></td>
+        <td>
+          <div
+            *ngIf="
+              employeeForm.get('phone').invalid &&
+              employeeForm.get('phone').touched
+            "
+          >
+            <small *ngIf="employeeForm.get('phone').errors?.required"
+              >Phone number is required.</small
+            >
+            <small *ngIf="employeeForm.get('phone').errors?.invalid"
+              >Please enter a valid phone number
+            </small>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td><label for="address">Address:</label></td>
+        <td><textarea id="address" formControlName="address"></textarea></td>
+        <td>
+          <div
+            *ngIf="
+              employeeForm.get('address').invalid &&
+              employeeForm.get('address').touched
+            "
+          >
+            <small *ngIf="employeeForm.get('address').errors?.required"
+              >Address is required.</small
+            >
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td><label for="position">Position:</label></td>
+        <td>
+          <select id="position" formControlName="position">
+            <option value="">Select Position</option>
+            <option value="Manager">Manager</option>
+            <option value="Developer">Developer</option>
+            <option value="Designer">Designer</option>
+            <option value="HR">HR</option>
+          </select>
+        </td>
+        <td>
+          <div
+            *ngIf="
+              employeeForm.get('position').invalid &&
+              employeeForm.get('position').touched
+            "
+          >
+            <small *ngIf="employeeForm.get('position').errors?.required"
+              >Position is required.</small
+            >
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td><label for="dateOfJoining">Date of Joining:</label></td>
+        <td>
+          <input
+            type="date"
+            id="dateOfJoining"
+            formControlName="dateOfJoining"
+          />
+        </td>
+        <td>
+          <div
+            *ngIf="
+              employeeForm.get('dateOfJoining').invalid &&
+              employeeForm.get('dateOfJoining').touched
+            "
+          >
+            <small *ngIf="employeeForm.get('dateOfJoining').errors?.required"
+              >Date of joining is required.</small
+            >
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>
+          <button type="submit">Submit</button>
+        </td>
+      </tr>
+      <tr>
+        <div *ngIf="formStatus">Form Submitted Successfully</div>
+      </tr>
+    </table>
+  </form>
+  <div class="view-data">
+    <p>First Name: {{ employeeForm.value.firstName }}</p>
+    <p>Last Name: {{ employeeForm.value.lastName }}</p>
+    <p>Email: {{ employeeForm.value.email }}</p>
+    <p>Phone Number: {{ employeeForm.value.phone }}</p>
+    <p>Address: {{ employeeForm.value.address }}</p>
+    <p>Position: {{ employeeForm.value.position }}</p>
+    <p>DOJ: {{ employeeForm.value.dateOfJoining }}</p>
+  </div>
+</div>
