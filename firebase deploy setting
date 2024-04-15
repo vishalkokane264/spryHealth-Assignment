@@ -1,0 +1,15 @@
+Firebase login
+firebase init
+
+firebase deploy
+? What do you want to use as your public directory? dist/spry-health-assignment/browser
+? Configure as a single-page app (rewrite all urls to /index.html)? No
+? Set up automatic builds and deploys with GitHub? No
+✔ Wrote dist/spry-health-assignment/browser/404.html
+? File dist/spry-health-assignment/browser/index.html already exists. Overwrite? No
+i Skipping write of dist/spry-health-assignment/browser/index.html
+
+i Writing configuration info to firebase.json...
+i Writing project information to .firebaserc...
+
+✔ Firebase initialization complete!
